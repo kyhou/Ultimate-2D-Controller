@@ -1,4 +1,7 @@
 # Ultimate 2D Controller
+
+### Obs: This is an updated version of the Tarodev one, with some bug fixes and improvements.
+
 #### An updated, smoother version using standard Unity physics is on my [Patreon](https://www.patreon.com/tarodev).
 A great starting point for your 2D controller. Making use of all the hidden tricks like coyote, buffered actions, speedy apex, anti grav apex, etc
 
