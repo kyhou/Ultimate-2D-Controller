@@ -124,14 +124,14 @@ namespace TarodevController
         private bool _coyoteUsable;
         private float _timeJumpWasPressed;
 
-        private bool HasBufferedJump => _bufferedJumpUsable && _time < _timeJumpWasPressed + _stats.JumpBuffer;
+        private bool HasBufferedJump => _bufferedJumpUsable && _time < _timeJumpWasPressed + _stats.JumpBuffer && _timeJumpWasPressed > 0;
         private bool CanUseCoyote => _coyoteUsable && !_grounded && _time < _frameLeftGrounded + _stats.CoyoteTime;
 
         private void HandleJump()
         {
             if (!_endedJumpEarly && !_grounded && !_frameInput.JumpHeld && _rb.velocity.y > 0) _endedJumpEarly = true;
 
-            if (!_jumpToConsume && !HasBufferedJump) return;
+            if (!_jumpToConsume || !HasBufferedJump) return;
 
             if (_grounded || CanUseCoyote) ExecuteJump();
 
